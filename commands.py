@@ -1,3 +1,4 @@
+import os
 from colors import *
 from pyautogui import screenshot
 from dotenv import load_dotenv, find_dotenv
@@ -75,7 +76,7 @@ def generate_image(prompt: str):
         elif part.inline_data is not None:
             image = Image.open(BytesIO((part.inline_data.data)))
             image.save('gemini-native-image.png')
-            image.show()
+            os.startfile('gemini-native-image.png')
     
     print(BRIGHT_GREEN + full_response + RESET)
     append_log("q", prompt)
